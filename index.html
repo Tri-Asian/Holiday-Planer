@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<!--importing Fonts-->
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+<!--Main Menu-->
+    <div class="main-menu" id="main-menu">
+        <h1>Holiday Planner!</h1>
+        <button onclick="bookmenu()">Book Full Package</button>
+        <button onclick="hotelmenu()">Book Hotel</button>
+        <button onclick="flightmenu()">Book Flights</button>
+        <button onclick="enquirymenu()">Enquire About Existing Booking</button>
+        <button onclick="cancelmenu()">Cancel Bookings</button>
+        <button onclick="enqerymenu()">Have Any Queries?</button>
+        <button class="crazy-deals" onclick="dealsmenu()">Crazy Deals!!!</button>
+
+    </div>
+
+<!--Book Menu-->
+    <div class="UIs" id="book-menu">
+
+        <input id="dest" type="text" placeholder="Destination">
+        <lable for="dot">Date of Travel</lable>
+        <input id="dot" type="date">
+        <input id="nod" type="number" placeholder="No. Of Days">
+        <input id="air" type="text" placeholder="Airline">
+        <input id="h" type="text" placeholder="Name of The Hotel">
+        <input id="nog" type="number" max="10000" min="0" placeholder="No. of guests">
+        <button onclick="bookpck()">Book</button>
+        <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
+
+    </div>
+
+    <!--hotel menu-->
+    <div class="UIs" id="hotel-menu">
+
+        <input id="desth" type="text" placeholder="Destination">
+        <input id="hc" type="text" placeholder="Hotel Name">
+        <lable for="doc">Date of Check-in</lable>
+        <input id="doc" type="date">
+        <input id="nonh" type="number" placeholder="No. Of Nights">
+        <input id="nogh" type="number" max="10000" min="0" placeholder="No. of guests">
+        <button onclick="bookhotel()">Book Hotel</button>
+        <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
+
+    </div>
+
+    <!--Flight menu-->
+    <div class="UIs" id="flight-menu">
+        
+        <input id="airf" type="text" placeholder="Airline">
+        <input id="ddf" type="text" placeholder="Departure Destination">
+        <input id="adf" type="text" placeholder="Airline Destination">
+        <lable for="dodf">Date of Departure</lable>
+        <input id="dodf" type="date">
+        <input id="notf" type="number" max="10000" min="0" placeholder="No. of Travelers">
+        <button onclick="bookflight()">Book Flight</button>
+        <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
+
+    </div>
+    
+    <!--Enquire Existing Menu-->
+    <div class="UIs" id="enquire-menu">
+        
+        <select id="ce">
+
+            <option value="">Package Type</option>
+            <option value="1">Full Package</option>
+            <option value="2">Hotel Package</option>
+            <option value="3">Flight Package</option>
+
+        </select>
+        <input id="bne" type="number" max="10000" min="0" placeholder="Booking No.">
+        <button onclick="enquireexst()">Enquire</button>
+        <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
+
+    </div>
+    
+    <!--Submit Enquiry-->
+    <div class="UIs" id="enqery-menu">
+        
+        <input id="pn" type="number" placeholder="Phone No.">
+        <input id="eid" type="email" placeholder="Email">
+        <input id="q" type="text" placeholder="Query">
+        <button onclick="querybtn()">Submit enquiry</button>
+        <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
+
+    </div>
+    
+    <!--Cencel Booking-->
+    <div class="UIs" id="cancel-menu">
+        
+        <select>
+
+            <option value="">Package Type</option>
+            <option value="Full Package">Full Package</option>
+            <option value="Only Hotel">Hotel Package</option>
+            <option value="Only Flight">Flight Package</option>
+
+        </select>
+        <input type="number" max="10000" min="0" placeholder="Booking No.">
+        <button onclick="cancel()">Cancel Booking</button>
+        <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
+
+    </div>
+
+    <!--Deals Menu-->
+    <div class="UIs" id="deals-menu">
+        
+        <div class="deals">
+            ENJOY YOUR SUMMER, FEEL THE HEAT IN DUBAI WITH YOUR LOVED ONES(up to 4 guests) - $6,999 for 5 nights(Flights and Hotels included)
+        </div>
+        <div class="deals">
+            EXPLORE THE EUROPE IN THIS WINTER(up to 4 destinations) - $7,499/person for 4 nights(Flights and Hotels included)
+        </div>
+        <div class="deals">
+            SPEND SOME TIME WITH YOUR FAMILY IN AZERBAIJAN - $3,499/person for 4 nights(Flights and Hotels included)
+        </div>
+        <div class="deals">
+            FLY TO DUBAI WITH EMIRATES - $699/person(Only Flights, meals and in-flight entertainment included)
+        </div>
+        <div class="deals">
+            CHEAPEST NIGHT AT HOLIDAY INN HOTEL,MAURITIUS - $499 for delux king room(Only Hotel)
+        </div>
+        <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
+
+    </div>
+
+    <!--Message Menu-->
+    <div class="UIs" id="message-menu">
+
+        <div id="msg-box">
+
+            
+
+        </div>
+        <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
+
+    </div>
+
+
+</body>
+
+<style>
+
+    #msg-box{
+
+
+        width: auto;
+        height: auto;
+        border-radius: 5px;
+        background-color: white;
+        padding: 20px;
+        color: black;
+        text-align: center;
+
+    }
+
+    .back-p{
+
+        position: absolute;
+        top:0px;
+        left: 0px;
+        color: white;
+        margin: 10px;
+
+    }
+
+    label{
+
+        font-size: 15px;
+        color: black;
+
+    }
+
+    .deals{
+
+        width: 50%;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        margin: 35px;
+
+    }
+
+    select{
+
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        border: none;
+
+    }
+
+    html,body{
+
+        width:100%;
+        height: 100%;
+        background-color: #000000cc;
+        color: rgb(255, 255, 255);
+        margin: 0px;
+
+    }
+
+    input{
+
+        width: 250px;
+        background-color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 15px;
+        margin: 15px;
+
+    }
+
+    *{
+
+        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto', sans-serif;
+
+    }
+
+    .UIs{
+
+        display: none;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    body{
+
+        background-image: url('https://bugg.com/wp-content/uploads/beach-calm-clouds-457882-1600x1067.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+div{
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+button{
+
+border-radius: 10px;
+border: none;
+margin: 15px;
+padding: 10px;
+cursor: pointer;
+background-color: white;
+width: 300px;
+color: black;
+
+}
+.crazy-deals{
+
+    
+    border-radius: 10px;
+    border: none;
+    margin: 15px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(0, 119, 255);
+    width: 300px;
+    color: white;
+
+}
+h1{
+    font-family: 'Lobster', cursive;font-size: 50px;
+}
+
+</style>
+
+<script>
+
+    var current =''
+
+    
+    function enquireexst(){
+
+        air = document.getElementById('cq').value;
+        dd = document.getElementById('bnq').value;
+
+        if(air,dd !=''){
+
+            pywebview.api.delete(air,dd).then(displayMSG)
+
+        }
+
+    }
+    
+    function querybtn(){
+
+        pn = document.getElementById('pn').value;
+        eid = document.getElementById('eid').value;
+        q = document.getElementById('q').value;
+
+        if(pn,eid,q !=''){
+
+            pywebview.api.query(pn,eid,q).then(displayMSG)
+
+        }
+
+    }
+
+    function enquireexst(){
+
+        air = document.getElementById('ce').value;
+        dd = document.getElementById('bne').value;
+
+        if(air,dd !=''){
+
+            pywebview.api.enquire(air,dd).then(displayMSG)
+
+        }
+
+    }
+    
+    function bookflight(){
+
+        air = document.getElementById('airf').value;
+        dd = document.getElementById('ddf').value;
+        ad = document.getElementById('adf').value;
+        doc = document.getElementById('dodf').value;
+        nog = document.getElementById('notf').value;
+
+        if(air,dd,ad,doc,nog !=''){
+
+            pywebview.api.book_flight(air,dd,ad,doc,nog).then(displayMSG)
+
+        }
+
+    }
+
+    function bookhotel(){
+
+        dest = document.getElementById('desth').value;
+        hc = document.getElementById('hc').value;
+        doc = document.getElementById('doc').value;
+        non = document.getElementById('nonh').value;
+        nog = document.getElementById('nogh').value;
+
+        if(dest,doc,non,hc,nog !=''){
+
+            pywebview.api.book_hotel(dest,hc,doc,non,nog).then(displayMSG)
+
+        }
+
+    }
+
+    function bookpck(){
+
+        dest = document.getElementById('dest').value;
+        dot = document.getElementById('dot').value;
+        nod = document.getElementById('nod').value;
+        air = document.getElementById('air').value;
+        h = document.getElementById('h').value;
+        nog = document.getElementById('nog').value;
+
+        if(dest,dot,nod,air,h,nog !=''){
+
+            pywebview.api.book(dest,dot,nod,air,h,nog).then(displayMSG)
+
+        }
+
+    }
+
+    function displayMSG(msg){
+
+        document.getElementById(current).style.display='none';
+        document.getElementById('message-menu').style.display='flex';
+        document.getElementById('msg-box').innerText=msg;
+        current ="message-menu"
+
+    }
+
+    function bookmenu(){
+
+        document.getElementById('main-menu').style.display='none';
+        document.getElementById('book-menu').style.display='flex';
+        current ="book-menu"
+
+    }
+    
+    function cancelmenu(){
+
+        document.getElementById('main-menu').style.display='none';
+        document.getElementById('cancel-menu').style.display='flex';
+        current ="cancel-menu"
+
+    }
+    
+    function dealsmenu(){
+
+        document.getElementById('main-menu').style.display='none';
+        document.getElementById('deals-menu').style.display='flex';
+        current ="deals-menu"
+
+    }
+    
+    function dealsmenu(){
+
+        document.getElementById('main-menu').style.display='none';
+        document.getElementById('deals-menu').style.display='flex';
+        current ="deals-menu"
+
+    }
+    
+    function enqerymenu(){
+
+        document.getElementById('main-menu').style.display='none';
+        document.getElementById('enqery-menu').style.display='flex';
+        current ="enqery-menu"
+
+    }
+    
+    function enquirymenu(){
+
+    document.getElementById('main-menu').style.display='none';
+    document.getElementById('enquire-menu').style.display='flex';
+    current ="enquire-menu"
+
+    }
+
+    function flightmenu(){
+
+        
+        document.getElementById('main-menu').style.display='none';
+        document.getElementById('flight-menu').style.display='flex';
+        current ="flight-menu"
+
+    }
+    
+    function hotelmenu(){
+
+        document.getElementById('main-menu').style.display='none';
+        document.getElementById('hotel-menu').style.display='flex';
+        current ="hotel-menu"
+
+    }
+
+    function back(){
+
+        
+        document.getElementById('main-menu').style.display='flex';
+        document.getElementById(current).style.display='none';
+        current ="main-menu"
+
+    }
+
+</script>
+
+</html>
