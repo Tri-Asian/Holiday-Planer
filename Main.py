@@ -4,7 +4,7 @@ from unittest import skip
 import mysql.connector
 import webview
 
-mydb=mysql.connector.connect(host="localhost",user="root",passwd="2005",database="tests")
+mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="tests")
 mycursor=mydb.cursor()
 
 if mydb.is_connected():
@@ -83,6 +83,6 @@ class Api:
 
 
 #creating a window Object
-webview.create_window(title="Holiday Planner!",html=open("rohit.html").read(),js_api=Api())
+webview.create_window(title="Holiday Planner!",html=open("index.html").read(),js_api=Api())
 #starting the object create
 webview.start(debug=True)
