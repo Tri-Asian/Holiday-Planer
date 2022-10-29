@@ -7,16 +7,33 @@ import webview
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="tests")
 mycursor=mydb.cursor()
 
+
 if mydb.is_connected():
-    print("Connection Established.")
+    print()
 else:
     print("Connection Failed.")
-    '''
-mycursor.execute("create table booking(Booking_No integer,Destination varchar(20),Date_Of_Travel date,No_of_days integer,Airline varchar(20),Hotel varchar(20),No_of_guests integer);")
-mycursor.execute("create table hotel(Booking_No integer,Destination varchar(20),Hotel varchar(30),Date_of_CheckIn date,No_of_Nights integer,No_of_Guests integer);")
-mycursor.execute("create table flight(Booking_No integer,Airline varchar(20),Departure_Destination varchar(20),Arrival_Destination varchar(20),Date_of_Departure date,No_of_Travellers integer);")
 
-'''
+print("-------------*Welcome to Holiday Planner!*-------------")
+    
+mycursor.execute("show tables")
+x = mycursor.fetchall()
+
+if ("booking",) not in x:
+    mycursor.execute("create table booking(Booking_No integer primary key,Destination varchar(20),Date_Of_Travel date,No_of_days integer,Airline varchar(20),Hotel varchar(20),No_of_guests integer);")
+    mydb.commit()
+    
+if ("hotel",) not in x:
+    mycursor.execute("create table hotel(Booking_No integer primary key,Destination varchar(20),Hotel varchar(30),Date_of_CheckIn date,No_of_Nights integer,No_of_Guests integer);")
+    mydb.commit()
+    
+if ("flight",) not in x:
+    mycursor.execute("create table flight(Booking_No integer primary key,Airline varchar(20),Departure_Destination varchar(20),Arrival_Destination varchar(20),Date_of_Departure date,No_of_Travellers integer);")
+    mydb.commit()
+    
+if ("query",) not in x:
+    mycursor.execute("create table query(Phone integer,Email_ID varchar(30),Query varchar(200))")
+    mydb.commit()
+
 
 #creating JavaScript Classs(object-self)
 class Api:
