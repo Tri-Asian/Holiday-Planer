@@ -3,6 +3,9 @@
 <!--importing Fonts-->
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400&display=swap" rel="stylesheet">
@@ -97,38 +100,81 @@
     <!--Cencel Booking-->
     <div class="UIs" id="cancel-menu">
         
-        <select>
+        <select id="cancel-select">
 
             <option value="">Package Type</option>
-            <option value="Full Package">Full Package</option>
-            <option value="Only Hotel">Hotel Package</option>
-            <option value="Only Flight">Flight Package</option>
+            <option value="1">Full Package</option>
+            <option value="2">Hotel Package</option>
+            <option value="3">Flight Package</option>
 
         </select>
-        <input type="number" max="10000" min="0" placeholder="Booking No.">
+        <input type="number" max="10000" min="0" id="cancel-bn" placeholder="Booking No.">
         <button onclick="cancel()">Cancel Booking</button>
         <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
 
     </div>
 
     <!--Deals Menu-->
-    <div class="UIs" id="deals-menu">
+    <div class="UIs" style="flex-direction: row;" id="deals-menu">
         
-        <div class="deals">
-            ENJOY YOUR SUMMER, FEEL THE HEAT IN DUBAI WITH YOUR LOVED ONES(up to 4 guests) - $6,999 for 5 nights(Flights and Hotels included)
+              <div style="width:100%;height: 100%;display:flex;justify-content:center;align-items:center;flex-direction:column;">
+        <div class="container">
+            <div class="coupon-card">
+
+                <h3>Enjoy your Summer, Feel the heat in Dubai with your Loved ones<br><b>up to 4 guests<br><br>$6,999 for 5 nights<br>(Flights and Hotels included)</b></h3>
+
+                <p>Valid Till: 20Dec, 2023</p>
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+            </div>
         </div>
-        <div class="deals">
-            EXPLORE THE EUROPE IN THIS WINTER(up to 4 destinations) - $7,499/person for 4 nights(Flights and Hotels included)
+      
+        <div class="container">
+            <div class="coupon-card">
+
+                <h3>Explore the Europe  in this Winter<br><b>up to 4 destinations<br><br>$7,499/person for 4 nights<br>(Flights and Hotels included)
+                </b></h3>
+
+                <p>Valid Till: 20Dec, 2023</p>
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+            </div>
         </div>
-        <div class="deals">
-            SPEND SOME TIME WITH YOUR FAMILY IN AZERBAIJAN - $3,499/person for 4 nights(Flights and Hotels included)
+        
+        <div class="container">
+            <div class="coupon-card">
+
+                <h3>Spend some with your Family in Azerbaijan<b><br><br>$3,499/person for 4 nights<br>(Flights and Hotels included)</b></h3>
+
+                <p>Valid Till: 20Dec, 2023</p>
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+            </div>
         </div>
-        <div class="deals">
-            FLY TO DUBAI WITH EMIRATES - $699/person(Only Flights, meals and in-flight entertainment included)
+      
+        <div class="container">
+            <div class="coupon-card">
+
+                <h3>FLY TO DUBAI WITH EMIRATES<br><b><br>$699/person<br>(Only Flights, meals and in-flight entertainment included)</b></h3>
+
+                <p>Valid Till: 20Dec, 2023</p>
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+            </div>
         </div>
-        <div class="deals">
-            CHEAPEST NIGHT AT HOLIDAY INN HOTEL,MAURITIUS - $499 for delux king room(Only Hotel)
+      
+        <div class="container">
+            <div class="coupon-card">
+
+                <h3>CHEAPEST NIGHT AT HOLIDAY INN HOTEL,MAURITIUS<br><b><br>$499 for delux king room<br>(Only Hotel)</b></h3>
+
+                <p>Valid Till: 20Dec, 2023</p>
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+            </div>
         </div>
+      
+      </div>
         <p onclick="back()" class="back-p" style="cursor: pointer;">Back</p>
 
     </div>
@@ -162,7 +208,59 @@
         text-align: center;
 
     }
+.container{
+    
+    background: rgba(0,0,0,0);
+    display: flex;
+    align-items: center;
+    width: 90%;
+    
+    margin-top: 20px ;
+    justify-content: center;
 
+}
+.coupon-card{
+    background: linear-gradient(135deg, #7158fe, #9d4de6);
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    
+    padding: 40px 80px;
+    border-radius: 15px;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.15);
+    position: relative;
+
+}
+
+.coupon-card h3{
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 40px;
+
+}
+.coupon-card p{
+    font-size: 15px;
+    margin-top: 20px ;
+
+}
+
+
+.circle1, .circle2{
+    background: #f0fff3;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+.circle1{
+    left: -25px;
+}
+.circle2{
+    right: -25px;
+}
     .back-p{
 
         position: absolute;
@@ -182,12 +280,14 @@
 
     .deals{
 
-        width: 50%;
-        height: auto;
+        height: 50%;
+        margin: 10px;
         padding: 10px;
-        background-color: white;
+        background-color: rgba(250, 250, 250, 1);
         color: black;
-        border-radius: 5px;
+        text-align: center;
+        font-family: 'PT Sans', sans-serif;
+        border-radius: 10px;
         margin: 35px;
 
     }
@@ -308,6 +408,9 @@ h1{
 
     }
     
+    function cancel(){
+    pywebview.api.delete(document.getElementById('cancel-select').value,document.getElementById('cancel-bn').value).then(displayMSG);
+    }
     function querybtn(){
 
         pn = document.getElementById('pn').value;
