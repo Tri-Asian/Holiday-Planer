@@ -1,7 +1,5 @@
 
 import random
-from datetime import date
-from unittest import skip
 import mysql.connector
 import webview
 
